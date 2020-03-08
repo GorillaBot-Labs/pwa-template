@@ -5,7 +5,7 @@ import cors from 'cors';
 
 import server from './server';
 
-const   TEST_SERVER_PORT = 3033;
+const TEST_SERVER_PORT = 3033;
 let isRunning = false;
 
 export default async () => {

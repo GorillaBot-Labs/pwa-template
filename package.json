@@ -7,6 +7,7 @@
     "@babel/core": "^7.8.7",
     "@babel/node": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
     "@babel/register": "^7.8.6",
     "axios": "^0.19.2",
@@ -24,29 +25,17 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "babel-node bin/www",
-    "client": "node bin/start-client.js",
+    "client": "babel-node bin/start-client.js",
     "postinstall": "(cd client && yarn install);",
-    "server:test": "node bin/test-server.js",
-    "client:test": "node bin/test-client.js",
-    "client:build": "node bin/build-client.js",
+    "server:test": "babel-node bin/test-server.js",
+    "client:test": "babel-node bin/test-client.js",
+    "client:build": "babel-node bin/build-client.js",
     "cypress:open": "cypress open",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:seed": "npx sequelize-cli db:seed:all"
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
