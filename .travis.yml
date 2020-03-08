@@ -28,7 +28,10 @@ jobs:
     - stage: "Tests"
       script: yarn client:test
     - script: yarn server:test
-    - script: yarn cy:test
+    - script:
+        # remove this once caching is working
+        - cypress install
+        - yarn cy:test
     - stage: "Cleanup"
       # after all tests finish running we need
       # to kill all background jobs (i.e. server)
