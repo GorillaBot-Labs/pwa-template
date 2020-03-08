@@ -5,7 +5,7 @@ const TIME_LIMIT = (60 * 1000) * 5; // five minutes
 
 testServer.start(3000);
 
-const args = ['cy:run'];
+const args = ['cypress run'];
 const opts = {stdio: 'inherit', shell: true};
 child_process.spawn('yarn', args, opts);
 
