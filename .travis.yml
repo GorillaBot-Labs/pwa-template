@@ -2,23 +2,23 @@ language: node
 
 node_js:
   - $TRAVIS_NODE_VERSION # uses .nvmrc as default
-  -
+
 addons:
   apt:
     packages:
       # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
       - libgconf-2-4
-      -
-before_install:
-  # install yarn
-  - npm install -g yarn
-
-install: yarn install --frozen-lockfile
 
 cache:
   yarn: true
   directories:
     - ~/.cache
+
+before_install:
+  # install yarn
+  - npm install -g yarn
+
+install: yarn install --frozen-lockfile
 
 
 jobs:
@@ -28,10 +28,7 @@ jobs:
     - stage: "Tests"
       script: yarn client:test
     - script: yarn server:test
-    - env:
-        #https://github.com/cypress-io/cypress/issues/2634#issuecomment-542158506
-        - CYPRESS_CACHE_FOLDER=cache/Cypress
-      script: yarn cy:test
+    - script: yarn cy:test
     - stage: "Cleanup"
       # after all tests finish running we need
       # to kill all background jobs (i.e. server)
