@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "babel-node backend/server.js",
+    "server": "babel-node bin/www",
     "client": "node bin/start-client.js",
     "postinstall": "(cd client && yarn install);",
     "server:test": "jest backend --watch --globalSetup=./backend/globalSetupTests.js",
