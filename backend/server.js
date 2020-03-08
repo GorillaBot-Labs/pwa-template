@@ -10,7 +10,8 @@ const create = async (configure) => {
     server = express();
 
     // Express only serves static assets in production
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "test") {
+        console.log(`serving client build`);
         server.use(express.static("client/build"));
     }
 
@@ -31,7 +32,7 @@ const start = async () => {
     const port = server.get('port');
 
     server.listen(port, () => {
-        console.log(`API is running - http://localhost:${port}/`);
+        console.log(`server is running - http://localhost:${port}/`);
     });
 };
 

@@ -15,7 +15,9 @@ jobs:
   include:
     - stage: "Tests"
       script: yarn client:test
-    - # stage name not required, will continue to use `test`
+    -
       script: yarn server:test
+    -
+      script: yarn cy:test
     - stage: "Build"
       script: yarn client:build
