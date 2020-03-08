@@ -32,7 +32,7 @@
     "client:test": "babel-node bin/test-client.js",
     "client:build": "babel-node bin/build-client.js",
     "cy:open": "cypress open",
-    "cy:test": "NODE_ENV=test babel-node bin/test-cypress.js",
+    "cy:test": "NODE_ENV=test yarn start & npx cypress run",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:seed": "npx sequelize-cli db:seed:all"
   },
