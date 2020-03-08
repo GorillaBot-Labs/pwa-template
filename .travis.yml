@@ -17,6 +17,9 @@ install: yarn install --frozen-lockfile
 
 cache:
   yarn: true
+  directories:
+    - ~/.cache
+
 
 jobs:
   include:
