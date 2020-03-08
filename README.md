@@ -2,7 +2,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Development
 
-In the project directory, you can run:
+### Setup database
+
+First, you'll need to make sure a postgres instance is running on your machine. After that, use `psql` to run the following setup commands 
+
+```sql
+CREATE DATABASE pwa_template;
+CREATE DATABASE pwa_template_test;
+CREATE ROLE pwa_template_user WITH PASSWORD 'password' LOGIN;
+GRANT ALL ON DATABASE pwa_template to pwa_template_user;
+GRANT ALL ON DATABASE pwa_template_test to pwa_template_user;
+```
+
+### Install dependencies
+
+`yarn install`
+
+This will install all backend and client dependencies.
 
 ### Client and Server
 

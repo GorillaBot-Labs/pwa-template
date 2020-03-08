@@ -15,7 +15,10 @@
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
     "jest": "24.9.0",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "pg": "^7.18.2",
+    "sequelize": "^5.21.5",
+    "sequelize-cli": "^5.5.1"
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
@@ -26,7 +29,9 @@
     "server:test": "jest backend --watch --globalSetup=./backend/globalSetupTests.js",
     "client:test": "node bin/test-client.js",
     "client:build": "node bin/build-client.js",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:seed": "npx sequelize-cli db:seed:all"
   },
   "eslintConfig": {
     "extends": "react-app"
