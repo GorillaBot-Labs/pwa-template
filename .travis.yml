@@ -18,4 +18,4 @@ jobs:
     - # stage name not required, will continue to use `test`
       script: yarn server:test
     - stage: "Build"
-      script: yarn build
+      script: yarn client:build
