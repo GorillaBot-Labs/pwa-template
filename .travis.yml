@@ -23,12 +23,12 @@ jobs:
     - stage: "Build"
       script: yarn client:build
     - stage: "Tests"
-      script: yarn client:test
+    - script: yarn client:test
     - script: yarn server:test
-    - env:
-        #https://github.com/cypress-io/cypress/issues/2634#issuecomment-542158506
-        - CYPRESS_CACHE_FOLDER=cache/Cypress
-      script: yarn cy:test
+    - script:
+        # https://github.com/cypress-io/cypress/issues/2634#issuecomment-542158506
+        - export CYPRESS_CACHE_FOLDER=cache/Cypress
+        - yarn cy:test
     - stage: "Cleanup"
       # after all tests finish running we need
       # to kill all background jobs (i.e. server)
