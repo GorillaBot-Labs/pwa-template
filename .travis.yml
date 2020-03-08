@@ -1,7 +1,14 @@
 language: node
+
 node_js:
   - $TRAVIS_NODE_VERSION # uses .nvmrc as default
-
+  -
+addons:
+  apt:
+    packages:
+      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+      - libgconf-2-4
+      -
 before_install:
   # install yarn
   - npm install -g yarn
@@ -21,3 +28,7 @@ jobs:
       script: yarn cy:test
     - stage: "Build"
       script: yarn client:build
+    - stage: "Cleanup"
+      # after all tests finish running we need
+      # to kill all background jobs (i.e. server)
+      script: kill $(jobs -p) || true
