@@ -14,7 +14,6 @@
     "babel-register": "^6.26.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
-    "cypress": "^4.1.0",
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
     "jest": "24.9.0",
@@ -32,7 +31,7 @@
     "client:test": "babel-node bin/test-client.js",
     "client:build": "babel-node bin/build-client.js",
     "cy:open": "cypress open",
-    "cy:test": "NODE_ENV=test yarn start & npx cypress run",
+    "cy:test": "NODE_ENV=test yarn start & wait-on http://localhost:3000 && cypress run",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:seed": "npx sequelize-cli db:seed:all"
   },
@@ -40,7 +39,9 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "cypress": "^4.1.0",
+    "wait-on": "^4.0.1"
   },
   "engines": {
     "node": "12.16.1",
