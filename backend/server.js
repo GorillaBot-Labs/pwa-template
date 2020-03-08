@@ -1,19 +1,41 @@
 import express from "express";
 
-const app = express();
-const port = process.env.PORT || 3001;
+import authRouter from './routers/auth';
 
-app.set("port", port);
+let server = null;
 
-// Express only serves static assets in production
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-}
+const create = async (configure) => {
+    const port = process.env.PORT || 3001;
 
-app.get("/api/healthcheck", (req, res) => {
-    res.sendStatus(200)
-});
+    server = express();
 
-app.listen(port, () => {
-    console.log(`API is running - http://localhost:${port}/`);
-});
+    // Express only serves static assets in production
+    if (process.env.NODE_ENV === "production") {
+        server.use(express.static("client/build"));
+    }
+
+    server.set("port", port);
+
+    if (configure) {
+        await configure(server);
+    }
+
+    /*
+     * Routing must come after configure hook to enable features
+     * for testing environment.
+     */
+    server.use("/api/auth", authRouter);
+};
+
+const start = async () => {
+    const port = server.get('port');
+
+    server.listen(port, () => {
+        console.log(`API is running - http://localhost:${port}/`);
+    });
+};
+
+export default {
+    create,
+    start,
+};
