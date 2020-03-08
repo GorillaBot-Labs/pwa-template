@@ -2,7 +2,7 @@ language: node
 
 node_js:
   - $TRAVIS_NODE_VERSION # uses .nvmrc as default
-  -
+
 addons:
   apt:
     packages:
