@@ -22,9 +22,10 @@ jobs:
   include:
     - stage: "Tests"
       script: yarn client:test
-    -
-      script: yarn server:test
-    -
+    - script: yarn server:test
+    - env:
+        #https://github.com/cypress-io/cypress/issues/2634#issuecomment-542158506
+        - CYPRESS_CACHE_FOLDER=cache/Cypress
       script: yarn cy:test
     - stage: "Build"
       script: yarn client:build
