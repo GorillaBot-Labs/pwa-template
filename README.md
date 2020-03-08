@@ -4,7 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Setup database
 
-First, you'll need to make sure a postgres instance is running on your machine. After that, use `psql` to run the following setup commands 
+1. Download the [postgres app](https://postgresapp.com/)
+2. `psql` 
 
 ```sql
 CREATE DATABASE pwa_template;
