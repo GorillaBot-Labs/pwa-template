@@ -1,0 +1,21 @@
+language: node
+node_js:
+  - $TRAVIS_NODE_VERSION # uses .nvmrc as default
+
+before_install:
+  # install yarn
+  - npm install -g yarn
+
+install: yarn install
+
+cache:
+  yarn: true
+
+jobs:
+  include:
+    - stage: "Tests"
+      script: yarn client:test
+    - # stage name not required, will continue to use `test`
+      script: yarn server:test
+    - stage: "Build"
+      script: yarn build
