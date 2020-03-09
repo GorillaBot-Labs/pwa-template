@@ -2,6 +2,7 @@ import child_process from 'child_process';
 
 const args = [
     'backend',
+    '--env=node',
     '--globalSetup=./backend/globalSetupTests.js',
     '--globalTeardown=./backend/globalTeardownTests.js',
     '--detectOpenHandles'
