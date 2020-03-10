@@ -9,21 +9,31 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             firstName: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                field: "first_name",
             },
             lastName: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                field: "last_name",
             },
             email: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                unique: true,
+                allowNull: false,
+            },
+            password: {
+                type: Sequelize.STRING,
+                allowNull: false
             },
             createdAt: {
+                type: Sequelize.DATE,
                 allowNull: false,
-                type: Sequelize.DATE
+                field: "created_at"
             },
             updatedAt: {
+                type: Sequelize.DATE,
                 allowNull: false,
-                type: Sequelize.DATE
+                field: "updated_at"
             }
         });
     },

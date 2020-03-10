@@ -11,6 +11,8 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/register": "^7.8.6",
     "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "cypress": "^4.1.0",
@@ -23,17 +25,21 @@
     "sequelize-cli": "^5.5.1"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"yarn server\" \"yarn client\"",
     "server": "babel-node bin/www",
     "client": "babel-node bin/start-client.js",
     "postinstall": "(cd client && yarn install);",
-    "server:test": "babel-node bin/test-server.js",
-    "client:test": "babel-node bin/test-client.js",
+    "backend:test": "NODE_ENV=test babel-node bin/test-backend.js",
+    "client:test": "NODE_ENV=test babel-node bin/test-client.js",
     "client:build": "babel-node bin/build-client.js",
     "cy:open": "cypress open",
-    "cy:test": "NODE_ENV=test yarn start & wait-on http://localhost:3000 && cypress run",
     "db:migrate": "npx sequelize-cli db:migrate",
-    "db:seed": "npx sequelize-cli db:seed:all"
+    "db:migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "db:migrate:undo:all": "npx sequelize-cli db:migrate:undo:all",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "g:migration": "npx sequelize-cli migration:generate",
+    "g:model": "npx sequelize-cli model:generate",
+    "g:seed": "npx sequelize-cli seed:generate"
   },
   "eslintConfig": {
     "extends": "react-app"

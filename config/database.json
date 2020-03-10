@@ -1,23 +1,26 @@
 {
   "development": {
-    "username": "pwa_template_user",
+    "username": "friend_that_cooks_user",
     "password": "password",
-    "database": "pwa_template",
+    "database": "friend_that_cooks",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   },
   "test": {
-    "username": "pwa_template_user",
+    "username": "friend_that_cooks_user",
     "password": "password",
-    "database": "pwa_template_test",
+    "database": "friend_that_cooks_test",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   }
 }

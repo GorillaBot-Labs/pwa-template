@@ -1,6 +1,9 @@
 import express from "express";
+import morgan from "morgan";
+import bodyParser from 'body-parser';
 
 import authRouter from './routers/auth';
+import {isProduction, isTest} from "./constants";
 
 let server = null;
 
@@ -9,13 +12,21 @@ const create = async (configure) => {
 
     server = express();
 
+    // setup between production and development servers
+    if (isProduction) {
+        server.use(morgan('combined'));
+    } else {
+        server.use(morgan('dev'));
+    }
+
     // Express only serves static assets in production
-    if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "test") {
+    if (isProduction || isTest) {
         console.log(`serving client build`);
         server.use(express.static("client/build"));
     }
 
     server.set("port", port);
+    server.use(bodyParser.json());
 
     if (configure) {
         await configure(server);
