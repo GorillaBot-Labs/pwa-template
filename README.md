@@ -1,4 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 # PWA Template
 <image src="https://travis-ci.com/GorillaBot-Labs/pwa-template.svg?branch=master"/>
 
@@ -30,19 +31,11 @@ You will also see any lint errors in the console.
 
 ## Testing
 
-### Client Tests
+- `yarn client:test`: Run the client react test suite
 
-`yarn client:test`
+- `yarn backend:test`: Run the backend test suite (i.e. api, services, db)
 
-### Backend Tests
-
-`yarn backend:test`
-
-### Functional Tests
-
-`yarn cypress:open`
-
-Launches the cypress test interface for monitoring our end-to-end testing infrastructure.
+- `yarn cypress:open`: Launches the cypress test interface for monitoring our end-to-end testing infrastructure. Make sure you have a test client/server instance running to accept the requests (`NODE_ENV=test yarn start`). 
 
 ## Deployment
 
