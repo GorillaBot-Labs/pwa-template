@@ -3,11 +3,15 @@ language: node
 node_js:
   - $TRAVIS_NODE_VERSION # uses .nvmrc as default
 
+services:
+  - postgresql
+
 addons:
   apt:
     packages:
-      # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
-      - libgconf-2-4
+  # Ubuntu 16+ does not install this dependency by default, so we need to install it ourselves
+  - libgconf-2-4
+
 
 cache:
   yarn: true
@@ -20,12 +24,18 @@ before_install:
 
 install: yarn install --frozen-lockfile
 
+before_script:
+  - psql -c "CREATE DATABASE pwa_template_test;" -U postgres
+  - psql -c "CREATE ROLE pwa_template_user WITH PASSWORD 'password' LOGIN;" -U postgres
+  - psql -c "GRANT ALL ON DATABASE pwa_template_test to pwa_template_user;" - U postgres
 
 jobs:
   include:
+    - stage: "Setup"
+      script: NODE_ENV=test yarn db:migrate
     - stage: "Build"
       script: yarn client:build
     - stage: "Tests"
       script: yarn client:test
     - script: yarn backend:test
-    - script: yarn cy:test
+    - script: NODE_ENV=test yarn start & wait-on http://localhost:3000 && cypress run
