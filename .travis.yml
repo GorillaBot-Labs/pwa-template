@@ -27,5 +27,5 @@ jobs:
       script: yarn client:build
     - stage: "Tests"
       script: yarn client:test
-    - script: yarn server:test
+    - script: yarn backend:test
     - script: yarn cy:test
