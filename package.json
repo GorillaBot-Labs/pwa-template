@@ -33,6 +33,7 @@
     "client:test": "NODE_ENV=test babel-node bin/test-client.js",
     "client:build": "babel-node bin/build-client.js",
     "cy:open": "cypress open",
+    "db:create": "npx sequelize-cli db:create && yarn db:migrate",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:migrate:undo": "npx sequelize-cli db:migrate:undo",
     "db:migrate:undo:all": "npx sequelize-cli db:migrate:undo:all",

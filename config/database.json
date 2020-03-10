@@ -1,15 +1,15 @@
 {
   "development": {
-    "username": "pwa_template_user",
-    "password": "password",
+    "username": "postgres",
+    "password": "",
     "database": "pwa_template",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
   },
   "test": {
-    "username": "pwa_template_user",
-    "password": "password",
+    "username": "postgres",
+    "password": "",
     "database": "pwa_template_test",
     "host": "127.0.0.1",
     "dialect": "postgres",
