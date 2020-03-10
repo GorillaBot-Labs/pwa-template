@@ -27,7 +27,7 @@ install: yarn install --frozen-lockfile
 before_script:
   - psql -c "CREATE DATABASE pwa_template_test;" -U postgres
   - psql -c "CREATE ROLE pwa_template_user WITH PASSWORD 'password' LOGIN;" -U postgres
-  - psql -c "GRANT ALL ON DATABASE pwa_template_test to pwa_template_user;" - U postgres
+  - psql -c "GRANT ALL ON DATABASE pwa_template_test to pwa_template_user;" -U postgres
 
 jobs:
   include:
