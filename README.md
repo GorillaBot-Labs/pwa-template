@@ -1,25 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# PWA Template
+<image src="https://travis-ci.com/GorillaBot-Labs/pwa-template.svg?branch=master"/>
+
 ## Development
 
-### Setup database
-
-1. Download the [postgres app](https://postgresapp.com/)
-2. `psql` 
-
-```sql
-CREATE DATABASE pwa_template;
-CREATE DATABASE pwa_template_test;
-CREATE ROLE pwa_template_user WITH PASSWORD 'password' LOGIN;
-GRANT ALL ON DATABASE pwa_template to pwa_template_user;
-GRANT ALL ON DATABASE pwa_template_test to pwa_template_user;
-```
-
-### Install dependencies
+### Dependencies
 
 `yarn install`
 
 This will install all backend and client dependencies.
+
+### Database
+
+1. Download the [postgres app](https://postgresapp.com/)
+2. `yarn db:create`
+3. `yarn db:seed`
 
 ### Client and Server
 
@@ -31,32 +27,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### Client
-
-`yarn client`
-
-Run the client application independent of the backend server
-
-### Server
-
-`yarn server`
-
-Run the backend server independent of the client application
+*If you need to run the client and server in separate processes use `yarn client` and `yarn server`.*
 
 ## Testing
 
-### Unit Tests
+- `yarn client:test`: Run the client react test suite
 
-`yarn test`
+- `yarn backend:test`: Run the backend test suite (i.e. api, services, db)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### Functional Tests
-
-`yarn cypress:open`
-
-Launches the cypress test interface for monitoring our end-to-end testing infrastructure.
+- `yarn cypress:open`: Launches the cypress test interface for monitoring our end-to-end testing infrastructure. Make sure you have a test client/server instance running to accept the requests (`NODE_ENV=test yarn start`). 
 
 ## Deployment
 
