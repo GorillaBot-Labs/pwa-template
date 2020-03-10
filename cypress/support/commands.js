@@ -13,7 +13,3 @@ Cypress.Commands.add("login", (email, password) => {
     cy.getByTestId('password').type(password);
     cy.getByTestId('submit').click();
 });
-
-Cypress.Commands.add("getByTestId", (testId) => {
-    cy.get(`[data-testid="${testId}"]`)
-});
