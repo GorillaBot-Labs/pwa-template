@@ -61,11 +61,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Staging
 1. Push to Heroku: `git push staging master`
-1. Migrate database: `heroku run -r staging rake db:migrate`
+1. Migrate database: `heroku run -r staging yarn db:migrate`
 
 ### Production
 1. Push to Heroku: `git push production master`
-1. Migrate database: `heroku run -r production rake db:migrate`
+1. Migrate database: `heroku run -r production yarn db:migrate`
 
 ## Learn More
 
