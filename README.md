@@ -8,20 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Staging
 1. App: `heroku apps:create staging-project-name -r staging`
 1. Database: `heroku addons:create -r staging heroku-postgresql:hobby-dev --version=12`
-1. Buildpacks:
-```
-heroku buildpacks:add -r staging heroku/nodejs;
-heroku buildpacks:add -r staging heroku/ruby;
-```
 
 ### Production
 1. App: `heroku apps:create project-name -r production`
 1. Database: `heroku addons:create -r production heroku-postgresql:hobby-dev --version=12`
-1. Buildpacks:
-```
-heroku buildpacks:add -r production heroku/nodejs;
-heroku buildpacks:add -r production heroku/ruby;
-``` 
 
 ## Development
 
