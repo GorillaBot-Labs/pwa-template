@@ -42,9 +42,7 @@ You will also see any lint errors in the console.
 ## Testing
 
 - `yarn client:test`: Run the client react test suite
-
 - `yarn backend:test`: Run the backend test suite (i.e. api, services, db)
-
 - `yarn cypress:open`: Launches the cypress test interface for monitoring our end-to-end testing infrastructure. Make sure you have a test client/server instance running to accept the requests (`NODE_ENV=test yarn start`). 
 
 ## Deployment
