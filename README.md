@@ -3,6 +3,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # PWA Template
 <image src="https://travis-ci.com/GorillaBot-Labs/pwa-template.svg?branch=master"/>
 
+## Project Setup
+
+### Staging
+1. App: `heroku apps:create staging-project-name -r staging`
+1. Database: `heroku addons:create -r staging heroku-postgresql:hobby-dev --version=12`
+1. Buildpacks:
+```
+heroku buildpacks:add -r staging heroku/nodejs;
+heroku buildpacks:add -r staging heroku/ruby;
+```
+
+### Production
+1. App: `heroku apps:create project-name -r production`
+1. Database: `heroku addons:create -r production heroku-postgresql:hobby-dev --version=12`
+1. Buildpacks:
+```
+heroku buildpacks:add -r production heroku/nodejs;
+heroku buildpacks:add -r production heroku/ruby;
+``` 
+
 ## Development
 
 ### Dependencies
@@ -39,8 +59,6 @@ You will also see any lint errors in the console.
 
 ## Deployment
 
-### Build
-
 `yarn run build`
 
 Builds the app for production to the `build` folder.<br />
@@ -50,6 +68,14 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### Staging
+1. Push to Heroku: `git push staging master`
+1. Migrate database: `heroku run -r staging rake db:migrate`
+
+### Production
+1. Push to Heroku: `git push production master`
+1. Migrate database: `heroku run -r production rake db:migrate`
 
 ## Learn More
 
